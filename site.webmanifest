@@ -1,0 +1,14 @@
+{
+  "name": "Toá Rooftop",
+  "short_name": "Toá",
+  "description": "Primeiro restaurante rooftop de Alagoas, na orla da Pajuçara, Maceió.",
+  "lang": "pt-BR",
+  "start_url": "/toa-rooftop-preview/",
+  "display": "browser",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    { "src": "/toa-rooftop-preview/assets/img/logo/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/toa-rooftop-preview/assets/img/logo/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
