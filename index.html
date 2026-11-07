@@ -80,7 +80,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300..500&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.min.css?v=3c44642b">
+  <link rel="stylesheet" href="assets/css/site.min.css?v=54a5fbeb">
 </head>
 <body class="page">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -116,7 +116,7 @@
       </div>
     </div>
   </header>
-  <div class="menu-panel theme-dark" id="menu" data-menu inert>
+  <div class="menu-panel theme-dark" id="menu" data-menu data-lenis-prevent inert>
     <div class="menu-panel__inner container">
       <nav aria-label="Menu">
         <ol class="menu-panel__list" role="list">
@@ -154,7 +154,7 @@
       <div class="hero__content container">
         <img class="hero__logo" src="assets/img/logo/toa-logo-negativo.webp" alt="Toá Rooftop" width="640" height="508" data-reveal="fade">
         <p class="eyebrow" data-reveal style="--reveal-delay: 150ms">Pajuçara · Maceió</p>
-        <h1 class="hero__title" id="hero-title" data-reveal style="--reveal-delay: 250ms">
+        <h1 class="hero__title" id="hero-title" data-split style="--split-delay: 250ms">
           Uma nova perspectiva sobre a <span class="t-em">gastronomia</span> em Maceió.
         </h1>
         <div class="hero__actions btn-group" data-reveal style="--reveal-delay: 400ms" data-hero-cta>
@@ -169,7 +169,7 @@
         </div>
         <p class="t-tagline hero__tagline" data-reveal style="--reveal-delay: 550ms">daqui do alto eu te espero</p>
       </div>
-      <div class="hero__meta container" data-reveal="fade" style="--reveal-delay: 700ms">
+      <div class="hero__meta container">
         <p class="hero__meta-item">Primeiro rooftop de Alagoas</p>
         <p class="hero__meta-item hero__meta-address">Edf. New Time · Orla da Pajuçara</p>
         <p class="hero__meta-item hero__meta-today" data-today hidden></p>
@@ -180,31 +180,33 @@
       <div class="container">
         <header class="about__head">
           <p class="eyebrow" data-reveal><span class="eyebrow__num">01</span> O Toá</p>
-          <h2 class="t-h1 about__title" id="about-title" data-reveal style="--reveal-delay: 100ms">
+          <h2 class="t-h1 about__title" id="about-title" data-split style="--split-delay: 100ms">
             Entre o horizonte, a <span class="t-em">brasa</span> e a cidade.
           </h2>
           <p class="t-lead about__lead" data-reveal style="--reveal-delay: 200ms">
             No topo do Edifício New Time, na orla da Pajuçara, o Toá é o primeiro restaurante em formato rooftop de Alagoas. Um lugar onde paisagem, fogo e técnica dialogam de forma integrada.
           </p>
         </header>
-        <div class="about__gallery">
-          <figure class="about__fig about__fig--main">
-            <div class="media" style="--ratio: 4/3" data-reveal="mask">
-              <div class="media__inner">
-                <img src="assets/img/fotos/arquitetura-faga-1.webp" alt="Salão do Toá com pé-direito duplo, mezanino envidraçado, sofás e mesas voltadas para a vista da Pajuçara" width="1080" height="762" loading="lazy" decoding="async" data-parallax>
-              </div>
-            </div>
-            <figcaption class="caption">Salão principal, com mezanino e cozinha-show ao fundo</figcaption>
-          </figure>
-          <figure class="about__fig about__fig--side">
-            <div class="media" style="--ratio: 2/3" data-reveal="mask">
-              <div class="media__inner">
-                <img src="assets/img/fotos/to-56-md.webp" alt="Lounge do Toá à noite, com poltronas de couro, luz baixa e o salão ocupado ao fundo" width="1200" height="1800" loading="lazy" decoding="async" data-parallax>
-              </div>
-            </div>
-            <figcaption class="caption">Do pôr do sol ao ritmo da noite</figcaption>
-          </figure>
-        </div>
+      </div>
+      <div class="duo" data-reveal>
+        <figure class="duo__side">
+          <img class="duo__bg" src="assets/img/fotos/arquitetura-faga-1.webp" alt="Salão do Toá de dia, com pé-direito duplo, mezanino envidraçado e mesas voltadas para a vista da Pajuçara" width="1080" height="762" loading="lazy" decoding="async">
+          <figcaption class="duo__tx">
+            <p class="t-caps duo__kicker">De dia</p>
+            <h3 class="duo__title">O almoço com o mar ao fundo.</h3>
+            <p class="duo__note">Sexta a domingo, a partir das 12h</p>
+          </figcaption>
+        </figure>
+        <figure class="duo__side">
+          <img class="duo__bg" src="assets/img/fotos/to-56-md.webp" alt="Lounge do Toá à noite, com poltronas de couro, luz baixa e o salão ocupado ao fundo" width="1200" height="1800" loading="lazy" decoding="async">
+          <figcaption class="duo__tx">
+            <p class="t-caps duo__kicker">À noite</p>
+            <h3 class="duo__title">A cidade se acende lá embaixo.</h3>
+            <p class="duo__note">Terça a quinta até 00h · sexta e sábado até 01h</p>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="container">
         <div class="about__text">
           <div class="about__block" data-reveal>
             <h3 class="t-caps about__label">A história</h3>
@@ -249,11 +251,16 @@
         </dl>
       </div>
     </section>
+    <div class="kinetic theme-dark" data-kinetic aria-hidden="true">
+      <p class="kinetic__line kinetic__line--r" style="--dir: 1"><span class="kinetic__cap">a orla da Pajuçara</span><span>horizonte</span></p>
+      <p class="kinetic__line kinetic__line--l" style="--dir: -1"><span class="t-em">brasa</span><span class="kinetic__cap">o fogo que conduz a cozinha</span></p>
+      <p class="kinetic__line kinetic__line--r" style="--dir: 1"><span class="kinetic__cap">Maceió lá embaixo</span><span>cidade</span></p>
+    </div>
     <section class="section theme-sand gastro" id="gastronomia" aria-labelledby="gastro-title">
       <div class="container">
         <header class="gastro__head">
           <p class="eyebrow" data-reveal><span class="eyebrow__num">02</span> Gastronomia</p>
-          <h2 class="t-h1 gastro__title" id="gastro-title" data-reveal style="--reveal-delay: 100ms">
+          <h2 class="t-h1 gastro__title" id="gastro-title" data-split style="--split-delay: 100ms">
             A brasa como <span class="t-em">linguagem</span>.
           </h2>
           <p class="t-lead gastro__lead" data-reveal style="--reveal-delay: 200ms">
@@ -389,7 +396,7 @@
       <div class="container">
         <header class="bar__head">
           <p class="eyebrow" data-reveal><span class="eyebrow__num">03</span> Coquetelaria</p>
-          <h2 class="t-h1 bar__title" id="bar-title" data-reveal style="--reveal-delay: 100ms">
+          <h2 class="t-h1 bar__title" id="bar-title" data-split style="--split-delay: 100ms">
             O ritual do <span class="t-em">pôr do sol</span>.
           </h2>
           <div class="bar__intro" data-reveal style="--reveal-delay: 200ms">
@@ -437,7 +444,7 @@
       <div class="container">
         <header class="spaces__head">
           <p class="eyebrow" data-reveal><span class="eyebrow__num">04</span> Ambientes</p>
-          <h2 class="t-h1 spaces__title" id="spaces-title" data-reveal style="--reveal-delay: 100ms">
+          <h2 class="t-h1 spaces__title" id="spaces-title" data-split style="--split-delay: 100ms">
             Arquitetura que se abre para a <span class="t-em">vista</span>.
           </h2>
           <p class="t-lead spaces__lead" data-reveal style="--reveal-delay: 200ms">
@@ -496,7 +503,7 @@
       <div class="container events__grid">
         <div class="events__intro">
           <p class="eyebrow" data-reveal><span class="eyebrow__num">05</span> Eventos</p>
-          <h2 class="t-h1 events__title" id="events-title" data-reveal style="--reveal-delay: 100ms">
+          <h2 class="t-h1 events__title" id="events-title" data-split style="--split-delay: 100ms">
             Para celebrar <span class="t-em">daqui do alto</span>.
           </h2>
           <p class="t-lead events__lead" data-reveal style="--reveal-delay: 200ms">
@@ -573,7 +580,7 @@
       <div class="container">
         <header class="visit__head">
           <p class="eyebrow" data-reveal><span class="eyebrow__num">06</span> Localização e reserva</p>
-          <h2 class="t-h1 visit__title" id="visit-title" data-reveal style="--reveal-delay: 100ms">
+          <h2 class="t-h1 visit__title" id="visit-title" data-split style="--split-delay: 100ms">
             Daqui do alto, <span class="t-em">eu te espero</span>.
           </h2>
         </header>
@@ -638,10 +645,17 @@
     </section>
   </main>
   <footer class="site-footer theme-dark">
+    <div class="marquee" data-marquee aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__item">daqui do alto eu te espero</span><span class="marquee__sep"></span>
+        <span class="marquee__item">daqui do alto eu te espero</span><span class="marquee__sep"></span>
+        <span class="marquee__item">daqui do alto eu te espero</span><span class="marquee__sep"></span>
+      </div>
+    </div>
     <div class="container">
       <div class="site-footer__top">
         <img class="site-footer__logo" src="assets/img/logo/toa-logo-negativo.webp" alt="Toá Rooftop" width="640" height="508" loading="lazy">
-        <p class="t-tagline site-footer__tagline">daqui do alto eu te espero</p>
+        <p class="visually-hidden">daqui do alto eu te espero</p>
         <a class="btn btn--primary site-footer__cta" data-link="reserva" data-track="reserva_rodape"
            href="https://www.getin.app/maceio/toa-rooftop?utm_source=site&amp;utm_medium=botao-reserva" target="_blank" rel="noopener">
           Faça sua reserva <svg class="btn__icon btn__icon--external" aria-hidden="true"><use href="#i-external"/></svg>
@@ -697,7 +711,9 @@
        href="https://menu.getin.app/pt-br/jkv32ZP2/menus/oPMlnGkG" target="_blank" rel="noopener">Cardápio</a>
   </div>
   <script src="assets/js/config.js?v=f2676c50" defer></script>
-  <script src="assets/js/main.js?v=b9852c19" defer></script>
+  <script src="assets/vendor/lenis.min.js?v=acddbf76" defer></script>
+  <script src="assets/js/main.js?v=20188cc2" defer></script>
+  <script src="assets/js/motion.js?v=b9d30d60" defer></script>
   <script src="assets/js/eventos-form.js?v=4fc3099f" defer></script>
 </body>
 </html>

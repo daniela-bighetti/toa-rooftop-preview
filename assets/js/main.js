@@ -59,6 +59,14 @@
         var goingDown = y > lastY;
         header.classList.toggle("is-hidden", goingDown && y > window.innerHeight * 0.6);
       }
+      /* Barra de reserva mobile: aparece depois de rolar meio hero
+         (o hero fica fixo ao fundo, então não dá para observar o CTA sair da tela) */
+      var bar = document.querySelector("[data-mobile-bar]");
+      if (bar) bar.classList.toggle("is-visible", y > window.innerHeight * 0.55);
+      /* No topo, nenhum item do menu fica marcado */
+      if (y < window.innerHeight * 0.5) {
+        document.querySelectorAll("[data-nav][aria-current]").forEach(function (a) { a.removeAttribute("aria-current"); });
+      }
       lastY = y;
       ticking = false;
     };
@@ -88,6 +96,8 @@
     } else {
       panel.setAttribute("inert", "");
     }
+    /* avisa o motion.js (pausa/retoma a rolagem suave) */
+    document.dispatchEvent(new CustomEvent("toa:menu", { detail: { open: open } }));
   }
 
   if (toggle && panel) {
@@ -109,20 +119,7 @@
     });
   }
 
-  /* ---------- Barra de reserva mobile: aparece quando o CTA do hero sai da tela ---------- */
-  var bar = document.querySelector("[data-mobile-bar]");
-  var heroCta = document.querySelector("[data-hero-cta]");
-  if (bar) {
-    if (heroCta && hasIO) {
-      new IntersectionObserver(function (entries) {
-        var e = entries[0];
-        /* visível quando o CTA do hero já passou (está acima da tela) */
-        bar.classList.toggle("is-visible", !e.isIntersecting && e.boundingClientRect.top < 0);
-      }).observe(heroCta);
-    } else {
-      bar.classList.add("is-visible");
-    }
-  }
+  /* (Barra de reserva mobile: controlada em updateHeader, pela posição da rolagem) */
 
   /* ---------- Menu: destaca a seção atual ---------- */
   var navLinks = document.querySelectorAll("[data-nav]");
