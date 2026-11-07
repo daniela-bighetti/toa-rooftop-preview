@@ -80,7 +80,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300..500&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.min.css?v=54a5fbeb">
+  <link rel="stylesheet" href="assets/css/site.min.css?v=c96ddcf3">
 </head>
 <body class="page">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -408,18 +408,35 @@
           </div>
         </header>
         <div class="bar__gallery">
-          <figure class="bar__fig bar__fig--main">
-            <div class="media" style="--ratio: 3/2" data-reveal="mask">
-              <div class="media__inner">
-                <img src="assets/img/fotos/arquitetura-faga-2.webp" alt="Bar do Toá com balcão de azulejos claros, prateleiras de garrafas e janelas de vidro com a luz do fim de tarde" width="1080" height="720" loading="lazy" decoding="async" data-parallax>
-              </div>
-            </div>
-            <figcaption class="caption">O bar, integrado à cozinha-show</figcaption>
+          <figure class="bar__fig bar__fig--main" data-reveal>
+            <button class="swap" type="button" style="--ratio: 3/2" data-swap aria-pressed="false"
+                    aria-label="Bar do Toá: alternar entre a foto de dia e a de noite">
+              <span class="swap__layer swap__layer--a">
+                <img class="swap__img" src="assets/img/fotos/arquitetura-faga-2.webp" alt="Bar do Toá de dia, com balcão de azulejos claros, prateleiras de garrafas e janelas de vidro com a luz do fim de tarde" width="1080" height="720" loading="lazy" decoding="async">
+                <span class="swap__label"><span class="t-caps">De dia</span> O bar sob a luz da tarde</span>
+              </span>
+              <span class="swap__layer swap__layer--b">
+                <span class="ph" role="img" aria-label="Foto do bar à noite (a definir)"><span class="ph__label">Foto · Bar à noite</span></span>
+                <span class="swap__label"><span class="t-caps">À noite</span> O bar no ritmo da noite</span>
+              </span>
+            </button>
+            <figcaption class="caption swap__hint">
+              <span class="swap__hint--hover">Passe o mouse para ver o bar à noite</span>
+              <span class="swap__hint--touch">Toque na foto para ver o bar à noite</span>
+            </figcaption>
           </figure>
-          <figure class="bar__fig bar__fig--drink">
-            <div class="ph" style="--ratio: 3/4" role="img" aria-label="Foto de drink de assinatura (a definir)">
-              <span class="ph__label">Foto · Drink de assinatura</span>
-            </div>
+          <figure class="bar__fig bar__fig--drink" data-reveal style="--reveal-delay: 120ms">
+            <button class="swap" type="button" style="--ratio: 3/4" data-swap aria-pressed="false"
+                    aria-label="Drinks de assinatura: alternar entre os dois drinks">
+              <span class="swap__layer swap__layer--a">
+                <span class="ph" role="img" aria-label="Foto do drink de assinatura 1 (a definir)"><span class="ph__label">Foto · Drink de assinatura 1</span></span>
+                <span class="swap__label"><span class="t-caps">Assinatura</span> Drink 1</span>
+              </span>
+              <span class="swap__layer swap__layer--b">
+                <span class="ph" role="img" aria-label="Foto do drink de assinatura 2 (a definir)"><span class="ph__label">Foto · Drink de assinatura 2</span></span>
+                <span class="swap__label"><span class="t-caps">Assinatura</span> Drink 2</span>
+              </span>
+            </button>
           </figure>
         </div>
         <div class="bar__bottom">
@@ -432,10 +449,17 @@
               Faça sua reserva <svg class="btn__icon btn__icon--external" aria-hidden="true"><use href="#i-external"/></svg>
             </a>
           </div>
-          <figure class="bar__fig bar__fig--night">
-            <div class="ph" style="--ratio: 1/1" role="img" aria-label="Foto de drinks no bar à noite (a definir)">
-              <span class="ph__label">Foto · Drinks à noite</span>
+          <figure class="bar__fig bar__fig--night" data-reveal style="--reveal-delay: 120ms">
+            <div class="media bar__video" style="--ratio: 3/4" data-video>
+              <video muted loop playsinline preload="none" poster="assets/img/fotos/por-do-sol-poster.webp"
+                     aria-label="Vídeo: o salão do Toá cheio ao pôr do sol, com a luz alaranjada entrando pelas janelas">
+                <source src="assets/video/por-do-sol.mp4" type="video/mp4">
+              </video>
+              <button class="video-toggle" type="button" data-video-toggle aria-label="Pausar vídeo" hidden>
+                <span class="video-toggle__icon" aria-hidden="true"></span>
+              </button>
             </div>
+            <figcaption class="caption">O salão ao pôr do sol</figcaption>
           </figure>
         </div>
       </div>
@@ -712,7 +736,7 @@
   </div>
   <script src="assets/js/config.js?v=f2676c50" defer></script>
   <script src="assets/vendor/lenis.min.js?v=acddbf76" defer></script>
-  <script src="assets/js/main.js?v=20188cc2" defer></script>
+  <script src="assets/js/main.js?v=22763196" defer></script>
   <script src="assets/js/motion.js?v=b9d30d60" defer></script>
   <script src="assets/js/eventos-form.js?v=4fc3099f" defer></script>
 </body>

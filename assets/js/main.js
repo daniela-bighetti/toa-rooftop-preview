@@ -153,6 +153,50 @@
     });
   });
 
+  /* ---------- Fotos com troca: clique / toque / Enter alterna ---------- */
+  document.querySelectorAll("[data-swap]").forEach(function (swap) {
+    swap.addEventListener("click", function () {
+      var on = !swap.classList.contains("is-on");
+      swap.classList.toggle("is-on", on);
+      swap.setAttribute("aria-pressed", String(on));
+    });
+  });
+
+  /* ---------- Vídeos em loop: tocam só quando visíveis, com botão de pausa ---------- */
+  var saveData = !!(navigator.connection && navigator.connection.saveData);
+  document.querySelectorAll("[data-video]").forEach(function (wrap) {
+    var video = wrap.querySelector("video");
+    var btn = wrap.querySelector("[data-video-toggle]");
+    if (!video) return;
+    var userPaused = reduceMotion || saveData;   /* nesses casos fica no poster até a pessoa dar play */
+
+    function setBtn() {
+      if (!btn) return;
+      btn.hidden = false;
+      var paused = video.paused;
+      btn.setAttribute("aria-label", paused ? "Reproduzir vídeo" : "Pausar vídeo");
+      btn.classList.toggle("is-paused", paused);
+    }
+    video.addEventListener("play", setBtn);
+    video.addEventListener("pause", setBtn);
+
+    if (btn) {
+      btn.addEventListener("click", function () {
+        if (video.paused) { userPaused = false; video.play().catch(function () {}); }
+        else { userPaused = true; video.pause(); }
+      });
+      setBtn();
+    }
+
+    if (hasIO) {
+      new IntersectionObserver(function (entries) {
+        var visible = entries[0].isIntersecting;
+        if (visible && !userPaused) video.play().catch(function () {});
+        else if (!visible && !video.paused) video.pause();
+      }, { rootMargin: "200px 0px" }).observe(wrap);
+    }
+  });
+
   /* ---------- Tour 360º: iframe sob demanda ---------- */
   document.querySelectorAll("[data-tour]").forEach(function (tour) {
     var btn = tour.querySelector("[data-tour-start]");
